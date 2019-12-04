@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "370109631475",
+    "firebase_url": "https://school-b35e0.firebaseio.com",
+    "project_id": "school-b35e0",
+    "storage_bucket": "school-b35e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370109631475:android:678c081652ab6b3dd86086",
+        "android_client_info": {
+          "package_name": "com.oladimeji.school"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370109631475-e8uk12eh8mb955dhv8hu3n9fjmh6u94v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR8sqUydX478-hM-TtIxS0Q884PjZP7Pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370109631475-e8uk12eh8mb955dhv8hu3n9fjmh6u94v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
