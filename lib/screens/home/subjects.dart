@@ -50,29 +50,31 @@ class _SubjectsState extends State<Subjects> {
               backgroundColor: boxColor,
               title: Text("Add more Courses"),
               content: Form(
-                child: Column(
-                  children: <Widget>[
-                    TextField(
-                      onChanged: (String value) {
-                        input1 = value;
-                      },
-                      maxLines: 3,
-                      decoration: textInputDecoration.copyWith(hintText: 'Course Code/Course Title',
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      TextField(
+                        onChanged: (String value) {
+                          input1 = value;
+                        },
+                        maxLines: 3,
+                        decoration: textInputDecoration.copyWith(hintText: 'Course Code/Course Title',
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10.0,),
-                    TextField(
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontFamily: 'Roboto',
+                      SizedBox(height: 10.0,),
+                      TextField(
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontFamily: 'Roboto',
+                        ),
+                        onChanged: (String value) {
+                          input2 = value;
+                        },
+                        maxLines: 13,
+                        decoration: textInputDecoration.copyWith(hintText: 'Course Content'),
                       ),
-                      onChanged: (String value) {
-                        input2 = value;
-                      },
-                      maxLines: 13,
-                      decoration: textInputDecoration.copyWith(hintText: 'Course Content'),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               actions: <Widget>[
@@ -107,36 +109,40 @@ class _SubjectsState extends State<Subjects> {
                   fontSize: 25.0,
                 ),) ,
                 subtitle: Text(courseContent[index]),
-                trailing: Icon(Icons.edit), onTap: (){
+                trailing: Icon(Icons.edit), onLongPress: (){
                   return AlertDialog(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0)),
                     backgroundColor: boxColor,
                     title: Text("Add more Courses"),
                     content: Form(
-                      child: Column(
-                        children: <Widget>[
-                          TextField(
-                            onChanged: (String value) {
-                              input1 = value;
-                            },
-                            maxLines: 1,
-                            decoration: textInputDecoration.copyWith(hintText: 'Course Code/Course Title',
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: <Widget>[
+                            TextField(
+                              textAlign: TextAlign.left,
+                              onChanged: (String value) {
+                                input1 = value;
+                              },
+                              maxLines: 1,
+                              decoration: textInputDecoration.copyWith(hintText: 'Course Code/Course Title',
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 10.0,),
-                          TextField(
-                            style: TextStyle(
-                              fontWeight: FontWeight.w300,
-                              fontFamily: 'Roboto',
+                            SizedBox(height: 10.0,),
+                            TextField(
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Roboto',
+                              ),
+                              onChanged: (String value) {
+                                input2 = value;
+                              },
+                              maxLines: 13,
+                              decoration: textInputDecoration.copyWith(hintText: 'Course Content'),
                             ),
-                            onChanged: (String value) {
-                              input2 = value;
-                            },
-                            maxLines: 13,
-                            decoration: textInputDecoration.copyWith(hintText: 'Course Content'),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     actions: <Widget>[

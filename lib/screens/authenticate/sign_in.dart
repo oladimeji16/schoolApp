@@ -45,56 +45,62 @@ class _SignInState extends State<SignIn> {
           )
         ],
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 50.0,),
-              TextFormField(
-                decoration: textInputDecoration.copyWith(hintText: 'Email'),
-                validator: (val) => val.isEmpty ? 'Enter a valid email address' : null,
-                onSaved: (val) {
-                  setState(() {
-                    email = val;
-                  });
-                },
+      body: SafeArea(
+        child: Center(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
+            child: Form(
+              key: _formKey,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 50.0,),
+                    TextFormField(
+                      decoration: textInputDecoration.copyWith(hintText: 'Email'),
+                      validator: (val) => val.isEmpty ? 'Enter a valid email address' : null,
+                      onSaved: (val) {
+                        setState(() {
+                          email = val;
+                        });
+                      },
+                    ),
+                    SizedBox(height: 20.0,),
+                    TextFormField(
+                      decoration: textInputDecoration.copyWith(hintText: 'Password'),
+                      validator: (val) => val.length <6 ? 'Enter a password that is at least 6 characters long' : null,
+                      obscureText: true,
+                      onSaved: (val) {
+                        setState(() {
+                          password = val;
+                        });
+                      },
+                    ),
+                    SizedBox(height: 30.0,),
+                    RaisedButton(
+                      color: Colors.blue,
+                      child: Text('Sign in',
+                      style: TextStyle(color: Colors.white),),
+                      onPressed: () async {
+                        this._formKey.currentState.save();
+                        if(_formKey.currentState.validate()){
+                          setState(()=> loading = true);
+                          dynamic result = await _authService.signInWithEmailAndPassword(email, password);
+                          if(result == null){
+                            setState((){
+                              loading = false;
+                              error = 'Could not sign in with those credentials';
+                            });
+                          }
+                        }
+                      },
+                    ),
+                    SizedBox(height: 20.0,),
+                    Text(error,
+                      style: TextStyle(color: Colors.red, fontSize: 13.0),)
+                  ],
+                ),
               ),
-              SizedBox(height: 20.0,),
-              TextFormField(
-                decoration: textInputDecoration.copyWith(hintText: 'Password'),
-                validator: (val) => val.length <6 ? 'Enter a password that is at least 6 characters long' : null,
-                obscureText: true,
-                onSaved: (val) {
-                  setState(() {
-                    password = val;
-                  });
-                },
-              ),
-              SizedBox(height: 30.0,),
-              RaisedButton(
-                color: Colors.blue,
-                child: Text('Sign in',
-                style: TextStyle(color: Colors.white),),
-                onPressed: () async {
-                  this._formKey.currentState.save();
-                  if(_formKey.currentState.validate()){
-                    setState(()=> loading = true);
-                    dynamic result = await _authService.signInWithEmailAndPassword(email, password);
-                    if(result == null){
-                      setState((){
-                        loading = false;
-                        error = 'Could not sign in with those credentials';
-                      });
-                    }
-                  }
-                },
-              ),
-              SizedBox(height: 20.0,),
-              Text(error,
-                style: TextStyle(color: Colors.red, fontSize: 13.0),)
-            ],
+            ),
           ),
         ),
       ),

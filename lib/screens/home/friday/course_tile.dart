@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:schoolapp/models/courses.dart';
-import 'package:schoolapp/services/database.dart';
-import 'package:schoolapp/shared/constant.dart';
 import '../monday/edit_form.dart';
 import '../input_page.dart';
 
@@ -14,19 +12,23 @@ class FridayTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 8.0),
-      child: Card(
-        margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
-        child: ListTile(
-          title: Text(course.time),
-          subtitle: Text(course.course),
-          trailing: Icon(Icons.edit), onTap: (){
-          return showModalBottomSheet(context: context, builder: (context) {
-            return EditForm();
-          });
-        },
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(top: 8.0),
+          child: Card(
+            margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
+            child: ListTile(
+              title: Text(course.time),
+              subtitle: Text(course.course),
+              trailing: Icon(Icons.edit), onTap: (){
+              return showModalBottomSheet(context: context, builder: (context) {
+                return EditForm();
+              });
+            },
 
+            ),
+          ),
         ),
       ),
     );

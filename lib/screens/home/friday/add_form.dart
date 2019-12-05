@@ -30,40 +30,46 @@ class _AddFormState extends State<AddForm> {
 
           UserData userData = snapshot.data;
 
-          return Form(
-            key: _formKey,
-            child: Column(
-              children: <Widget>[
-                Text('Edit your timetable',
-                  style: TextStyle(fontSize: 18.0),
+          return Container(
+            height: 250.0,
+            child: Form(
+
+              key: _formKey,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Text('Edit your timetable',
+                      style: TextStyle(fontSize: 18.0),
+                    ),
+                    SizedBox(height: 20.0,),
+                    TextFormField(
+                      initialValue: userData.time,
+                      decoration: textInputDecoration,
+                      validator: (val) => val.isEmpty ? 'Please enter time of course' : null,
+                      onSaved: (val) => setState(() => _currentTime = val),
+                    ),
+                    SizedBox(height: 20.0,),
+                    TextFormField(
+                      initialValue: userData.course,
+                      decoration: textInputDecoration,
+                      validator: (val) => val.isEmpty ? 'Please enter course code' : null,
+                      onSaved: (val) => setState(() => _currentCourse = val),
+                    ),
+                    RaisedButton(
+                      color: Colors.blue,
+                      child: Text('Save',
+                        style: TextStyle(color: Colors.white),),
+                      onPressed: () async {
+                        this._formKey.currentState.save();
+                        if(_formKey.currentState.validate()) {
+                          await DatabaseService(uid: user.uid).createUserDataFriday(_currentTime?? userData.time, _currentCourse?? userData.course);
+                          Navigator.pop(context);
+                        }
+                      },
+                    ),
+                  ],
                 ),
-                SizedBox(height: 20.0,),
-                TextFormField(
-                  initialValue: userData.time,
-                  decoration: textInputDecoration,
-                  validator: (val) => val.isEmpty ? 'Please enter time of course' : null,
-                  onSaved: (val) => setState(() => _currentTime = val),
-                ),
-                SizedBox(height: 20.0,),
-                TextFormField(
-                  initialValue: userData.course,
-                  decoration: textInputDecoration,
-                  validator: (val) => val.isEmpty ? 'Please enter course code' : null,
-                  onSaved: (val) => setState(() => _currentCourse = val),
-                ),
-                RaisedButton(
-                  color: Colors.blue,
-                  child: Text('Save',
-                    style: TextStyle(color: Colors.white),),
-                  onPressed: () async {
-                    this._formKey.currentState.save();
-                    if(_formKey.currentState.validate()) {
-                      await DatabaseService(uid: user.uid).createUserDataFriday(_currentTime?? userData.time, _currentCourse?? userData.course);
-                      Navigator.pop(context);
-                    }
-                  },
-                ),
-              ],
+              ),
             ),
           );
         }else{
