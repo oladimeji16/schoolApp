@@ -1,21 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:schoolapp/models/courses.dart';
+import 'package:schoolapp/screens/home/friday/timetableTemplate.dart';
 import 'package:schoolapp/screens/home/monday/add_form.dart';
-import 'package:schoolapp/screens/home/monday/timetableTemplate.dart';
 import 'package:schoolapp/services/database.dart';
 import 'package:provider/provider.dart';
-import 'timetable.dart';
 
 
 
-class TimetableStream extends StatefulWidget {
+
+class FridayStream extends StatefulWidget {
   @override
-  _TimetableStreamState createState() => _TimetableStreamState();
+  _FridayStreamState createState() => _FridayStreamState();
 }
 
 
-class _TimetableStreamState extends State<TimetableStream> {
+class _FridayStreamState extends State<FridayStream> {
   @override
   Widget build(BuildContext context) {
 
@@ -37,7 +37,7 @@ class _TimetableStreamState extends State<TimetableStream> {
           elevation: 5.0,
         ),
 
-        body: TemplateTimetable(),
+        body: FridayTemplate(),
 
         floatingActionButton: FloatingActionButton.extended(
             onPressed: () => _showEditPanel(),

@@ -9,7 +9,9 @@ class DaysOfTheWeek extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: AppBar(
-       title: Text('Days Of The Week'),
+       title: Text('Days'),
+       centerTitle: true,
+       titleSpacing: 2.0,
      ),
 
       body: Column(
@@ -19,24 +21,25 @@ class DaysOfTheWeek extends StatelessWidget {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/timetable');
+                    Navigator.of(context).pushNamed('/monday');
                   },
                   child: ReUsableCard(
-                    colour: boxColor,
+                    colour: textColor,
                     cardChild: Center(
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 50.0,),
+                          Image(
+                            image: AssetImage('images/monday.png'),
+                          ),
+                        SizedBox(height: 20.0,),
                           Text('Monday',
                             textAlign: TextAlign.center,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 25.0,
-                              color: textColor,
-
+                              color: boxColor,
                             ),
                           )
-
                         ],
                       ),
                     ),
@@ -46,18 +49,22 @@ class DaysOfTheWeek extends StatelessWidget {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/timetable');
+                    Navigator.of(context).pushNamed('/tuesday');
                   },
                   child: ReUsableCard(
-                    colour: boxColor,
+                    colour: textColor,
                     cardChild: Center(
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 50.0,),
+
+                          Image(
+                            image: AssetImage('images/tuesday.png'),
+                          ),
+                          SizedBox(height: 20.0,),
                           Text('Tuesday',
                             style: TextStyle(
                               fontSize: 25.0,
-                              color: textColor,
+                              color: boxColor,
 
                             ),
                           )
@@ -76,18 +83,21 @@ class DaysOfTheWeek extends StatelessWidget {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/timetable');
+                    Navigator.of(context).pushNamed('/wednesday');
                   },
                   child: ReUsableCard(
-                    colour: boxColor,
+                    colour: textColor,
                     cardChild: Center(
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 50.0,),
+                          Image(
+                            image: AssetImage('images/wednesday.png'),
+                          ),
+                          SizedBox(height: 20.0,),
                           Text('Wednesday',
                             style: TextStyle(
                               fontSize: 25.0,
-                              color: textColor,
+                              color: boxColor,
 
                             ),
                           )
@@ -101,18 +111,21 @@ class DaysOfTheWeek extends StatelessWidget {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/timetable');
+                    Navigator.of(context).pushNamed('/thursday');
                   },
                   child: ReUsableCard(
-                    colour: boxColor,
+                    colour: textColor,
                     cardChild: Center(
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 50.0,),
+                          Image(
+                            image: AssetImage('images/thursday.png'),
+                          ),
+                          SizedBox(height: 20.0,),
                           Text('Thursday',
                             style: TextStyle(
                               fontSize: 25.0,
-                              color: textColor,
+                              color: boxColor,
 
                             ),
                           )
@@ -131,18 +144,21 @@ class DaysOfTheWeek extends StatelessWidget {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/timetable');
+                    Navigator.of(context).pushNamed('/friday');
                   },
                   child: ReUsableCard(
-                    colour: boxColor,
+                    colour: textColor,
                     cardChild: Center(
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 50.0,),
+                          Image(
+                            image: AssetImage('images/friday.png'),
+                          ),
+                          SizedBox(height: 20.0,),
                           Text('Friday',
                             style: TextStyle(
                               fontSize: 25.0,
-                              color: textColor,
+                              color: boxColor,
 
                             ),
                           )
@@ -159,15 +175,18 @@ class DaysOfTheWeek extends StatelessWidget {
                     Navigator.of(context).pushNamed('/saturday');
                   },
                   child: ReUsableCard(
-                    colour: boxColor,
+                    colour: textColor,
                     cardChild: Center(
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 50.0,),
+                          Image(
+                            image: AssetImage('images/saturday.png'),
+                          ),
+                          SizedBox(height: 20.0,),
                           Text('Saturday',
                             style: TextStyle(
                               fontSize: 25.0,
-                              color: textColor,
+                              color: boxColor,
 
                             ),
                           )

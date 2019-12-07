@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:schoolapp/services/auth.dart';
-import 'days_of_the_week.dart';
+
 
 
 const bottomContainerHeight = 80.0;

@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:schoolapp/models/courses.dart';
 import 'package:schoolapp/screens/home/thursday/course_tile.dart';
-import 'package:schoolapp/screens/home/wednesday/course_tile.dart';
 
-class TemplateTimetable extends StatefulWidget {
+class ThursdayTemplate extends StatefulWidget {
   @override
-  _TemplateTimetableState createState() => _TemplateTimetableState();
+  _ThursdayTemplateState createState() => _ThursdayTemplateState();
 }
 
-class _TemplateTimetableState extends State<TemplateTimetable> {
+class _ThursdayTemplateState extends State<ThursdayTemplate> {
   @override
   Widget build(BuildContext context) {
     final thursday = Provider.of<List<ThursdayTimetable>>(context) ?? [];

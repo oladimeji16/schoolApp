@@ -1,6 +1,5 @@
 import 'dart:core';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:schoolapp/screens/home/monday/timetable.dart';
 import 'package:schoolapp/models/courses.dart';
 
 class DatabaseService {

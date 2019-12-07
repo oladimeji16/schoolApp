@@ -4,12 +4,12 @@ import 'package:schoolapp/models/courses.dart';
 import 'package:schoolapp/screens/home/friday/course_tile.dart';
 
 
-class TemplateTimetable extends StatefulWidget {
+class FridayTemplate extends StatefulWidget {
   @override
-  _TemplateTimetableState createState() => _TemplateTimetableState();
+  _FridayTemplateState createState() => _FridayTemplateState();
 }
 
-class _TemplateTimetableState extends State<TemplateTimetable> {
+class _FridayTemplateState extends State<FridayTemplate> {
   @override
   Widget build(BuildContext context) {
     final friday = Provider.of<List<FridayTimetable>>(context) ?? [];

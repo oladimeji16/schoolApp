@@ -16,7 +16,7 @@ class _TuesdayState extends State<Tuesday> {
 
   @override
   Widget build(BuildContext context) {
-    final tuesday = Provider.of<List<MondayTimetable>>(context);
+    final tuesday = Provider.of<List<TuesdayTimetable>>(context);
     //print(tuesday);
    tuesday.forEach((course) {
      print(course.time);
@@ -25,7 +25,7 @@ class _TuesdayState extends State<Tuesday> {
    });
 
 
-    return TimetableStream();
+    return TuesdayStream();
   }
 }
 

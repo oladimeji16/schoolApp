@@ -5,17 +5,17 @@ import 'package:schoolapp/screens/home/monday/add_form.dart';
 import 'package:schoolapp/screens/home/monday/timetableTemplate.dart';
 import 'package:schoolapp/services/database.dart';
 import 'package:provider/provider.dart';
-import 'timetable.dart';
 
 
 
-class TimetableStream extends StatefulWidget {
+
+class MondayStream extends StatefulWidget {
   @override
-  _TimetableStreamState createState() => _TimetableStreamState();
+  _MondayStreamState createState() => _MondayStreamState();
 }
 
 
-class _TimetableStreamState extends State<TimetableStream> {
+class _MondayStreamState extends State<MondayStream> {
   @override
   Widget build(BuildContext context) {
 
@@ -37,7 +37,7 @@ class _TimetableStreamState extends State<TimetableStream> {
           elevation: 5.0,
         ),
 
-        body: TemplateTimetable(),
+        body: MondayTemplate(),
 
         floatingActionButton: FloatingActionButton.extended(
             onPressed: () => _showEditPanel(),

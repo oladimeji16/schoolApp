@@ -26,7 +26,7 @@ class _FridayState extends State<Friday> {
    });
 
 
-    return TimetableStream();
+    return FridayStream();
   }
 }
 
